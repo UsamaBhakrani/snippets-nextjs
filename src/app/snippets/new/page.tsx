@@ -15,8 +15,6 @@ const SnippetCreatePage = () => {
         code,
       },
     });
-    // Log Snippet
-    console.log(snippet);
     // Navigate to Snippet List
     redirect("/");
   };
