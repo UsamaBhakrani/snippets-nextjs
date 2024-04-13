@@ -4,7 +4,7 @@ import { db } from "@/db";
 import { redirect } from "next/navigation";
 
 export const editSnippet = async (id: number, code: string) => {
-  const snippet = await db.snippet.update({ where: { id }, data: { code } });
+  await db.snippet.update({ where: { id }, data: { code } });
   redirect(`/snippets/${id}`);
 };
 
@@ -13,4 +13,26 @@ export const deleteSnippet = async (id: number) => {
     where: { id },
   });
   redirect(`/`);
+};
+
+export const createSnippet = async (
+  formState: { message: string },
+  formData: FormData
+) => {
+  return {
+    message: "Title Must be Longer",
+  };
+
+  // Validate Input
+  //   const title = formData.get("title") as string;
+  //   const code = formData.get("code") as string;
+  //   // Create new Record in DB
+  //   const snippet = await db.snippet.create({
+  //     data: {
+  //       title,
+  //       code,
+  //     },
+  //   });
+  //   // Navigate to Snippet List
+  //   redirect("/");
 };
