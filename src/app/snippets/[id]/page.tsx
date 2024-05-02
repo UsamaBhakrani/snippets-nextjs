@@ -1,7 +1,7 @@
 import { db } from "@/db";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import * as actions from "@/actions";
+import { deleteSnippet } from "@/actions";
 interface SnippetShowProps {
   params: {
     id: string;
@@ -15,7 +15,8 @@ const SnippetShowPage = async ({ params }: SnippetShowProps) => {
   if (!snippet) {
     return notFound();
   }
-  const deleteSnippetAction = actions.deleteSnippet.bind(null, snippet.id);
+
+  const deleteSnippetAction = deleteSnippet.bind(null, snippet.id);
 
   return (
     <div>

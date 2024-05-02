@@ -19,20 +19,17 @@ export const createSnippet = async (
   formState: { message: string },
   formData: FormData
 ) => {
-  return {
-    message: "Title Must be Longer",
-  };
 
   // Validate Input
-  //   const title = formData.get("title") as string;
-  //   const code = formData.get("code") as string;
+    const title = formData.get("title") as string;
+    const code = formData.get("code") as string;
   //   // Create new Record in DB
-  //   const snippet = await db.snippet.create({
-  //     data: {
-  //       title,
-  //       code,
-  //     },
-  //   });
+    const snippet = await db.snippet.create({
+      data: {
+        title,
+        code,
+      },
+    });
   //   // Navigate to Snippet List
-  //   redirect("/");
+    redirect("/");
 };
